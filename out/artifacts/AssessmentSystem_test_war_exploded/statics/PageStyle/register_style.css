@@ -1,0 +1,177 @@
+*{        /*初始化设置*/
+    padding: 0;
+    margin: 0;
+    font-size: 16px;
+    /*perspective: 1000px;*/
+}
+
+@font-face {font-family: 'iconfont';
+    src: url('../iconf/iconfont.eot');
+    src: url('../iconf/iconfont.eot?#iefix') format('embedded-opentype'),
+    url('../iconf/iconfont.woff') format('woff'),
+    url('../iconf/iconfont.ttf') format('truetype'),
+    url('../iconf/iconfont.svg#iconfont') format('svg');
+}
+
+.bkPicture{         /*背景图片设置*/
+    width: 1920px;
+    height: 800px;
+    padding-top: 187px;
+    background-image: linear-gradient(120deg,#487eb0, #fbc531);
+    overflow: hidden;
+    position: relative;
+}
+
+.registerPage{     /*登录页面设置*/
+    position: absolute;
+    left:610px ;
+    width: 700px;
+    height: 590px;
+    border-radius: 30px;
+    background-color: rgba(255, 255, 255, .9);
+    box-shadow:  2px 2px 2px #57606f;
+    overflow: hidden;
+}
+
+.loginContent{      /*当前状态显示如‘登录’*/
+    position: absolute;
+    top: 25px;
+    left: 25px;
+    text-shadow: 0px 2px 2px #cccccc;
+    color: rgb(0, 0, 0);
+    font:  30px "微软雅黑 Light";
+}
+
+.part{
+    margin:0 auto;
+    height: 430px;
+    width: 400px;
+    border-bottom-left-radius: 30px;
+    border-bottom-right-radius: 30px;
+}
+
+.re_input{      /*密码输入框*/
+    height: 50px;
+    width: 300px;
+    border-radius: 30px;
+    border:1px solid rgb(224,224,224);
+    padding: 0px 45px;
+    outline: none;
+    transition: border-color 0.25s;
+}
+
+.re_input:hover{
+    border-color: rgb(30,144,255);
+}
+
+.re_input:focus{
+    border-color: rgb(30,144,255);
+}
+
+.user{
+    margin-top: 100px;
+}
+
+.pwd{
+    margin-top: 30px;
+}
+
+.insure_pwd{
+    margin-top: 30px;
+}
+
+.get .span1{
+    position: absolute;
+    top: 115px;
+    left: 90px;
+}
+.get .span2{
+    position: absolute;
+    top: 215px;
+    left: 90px;
+}
+.get .span3{
+    position: absolute;
+    top: 300px;
+    left: 90px;
+}
+
+.arricon{
+    font-family:"iconfont" !important;
+    font-size:30px;
+    text-align: center;
+    line-height: 2;
+    border: 5px solid rgb(30,144,255);
+    width: 60px;
+    height: 60px;
+    border-radius: 15px;
+}
+.arricon a{
+    display: block;
+    width: 100%;
+    height: 100%;
+    text-decoration: none;
+    color: rgb(30,144,255);
+    transition: 0.25s;
+}
+
+.arricon a:hover{
+    background-color: rgb(30,144,255) ;
+    color: white;
+    font-size: 30px;
+}
+.usernameTip{       /*用户名输入提示*/
+    /*position: relative;*/
+    /*top: 90px;*/
+    /*left: 200px;*/
+    margin-left: 30px;
+    color: red;
+    font:  16px "微软雅黑";
+}
+
+.turn-left{
+    position: absolute;
+    top: 450px;
+    left:100px
+}
+
+.turn-right{
+    position: absolute;
+    top:450px;
+    left:500px;
+}
+
+.passwordTip{       /*密码输入提示*/
+    /*position: relative;*/
+    /*top: 120px;*/
+    /*left: 200px;*/
+    margin-left: 30px;
+    color: red;
+    font:  16px "微软雅黑";
+}
+
+.registerSkip{      /*注册页跳转*/
+    position:absolute;
+    right: -150px;
+    bottom: -180px;
+    color: rgb(0,118,254);
+    background: white;
+    width: 300px;
+    height: 300px;
+    transform: rotate(-38deg);
+}
+
+.registerSkip a{        /*注册页跳转超链接样式*/
+    display: inline-block;
+    text-decoration : none;
+    margin-top: 40px;
+    margin-left: 120px;
+}
+
+/*.registerSkip:hover{*/
+/*    box-shadow: 5px 5px 5px #999999;*/
+/*}*/
+
+.registerSkip a:hover{      /*注册页跳转鼠标悬停效果*/
+    color: #e86060;
+}

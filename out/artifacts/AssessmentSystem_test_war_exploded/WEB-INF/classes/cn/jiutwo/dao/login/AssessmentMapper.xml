@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<!--namespace=绑定一个对应的Dao/Mapper接口-->
+<mapper namespace="cn.jiutwo.dao.login.AssessmentMapper">
+
+<!--    查询学号是否已注册-->
+    <select id="findSno" parameterType="string" resultType="assessment">
+        select * from db_ojsystem_test.t_assessment where sno = #{sno};
+    </select>
+
+<!--    判断邮箱是否已被注册-->
+    <select id="findEmail" parameterType="string" resultType="assessment">
+        select * from db_ojsystem_test.t_assessment where email = #{email};
+    </select>
+
+<!--    注册用户-->
+    <insert id="regist" parameterType="assessment">
+        insert into db_ojsystem_test.t_assessment(uid,sno,username,password,school_id,email,email_code,status) values
+        (#{uid},#{sno},#{username},#{password},#{schoolId},#{email},#{emailCode},#{status})
+    </insert>
+
+<!--    根据激活码查询用户对象-->
+    <select id="findEmailCode" parameterType="string" resultType="assessment">
+        select * from db_ojsystem_test.t_assessment where email_code = #{emailCode};
+    </select>
+
+<!--    修改相应用户邮箱激活状态-->
+    <update id="updateStatus" parameterType="assessment">
+        update db_ojsystem_test.t_assessment set status = 'Y' where uid = #{uid};
+    </update>
+
+<!--    用户登入-->
+    <select id="findUser"  resultType="assessment">
+        select * from db_ojsystem_test.t_assessment where sno = #{sno} and password = #{password};
+    </select>
+</mapper>

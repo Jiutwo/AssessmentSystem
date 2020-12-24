@@ -1,0 +1,180 @@
+body,ul{
+    padding: 0;
+    margin: 0;
+    font-size: 12px;
+}
+
+a{
+    text-decoration: none;
+    color: white;
+}
+
+@font-face {font-family: 'iconfont';
+    src: url('../iconf/iconfont.eot');
+    src: url('../iconf/iconfont.eot?#iefix') format('embedded-opentype'),
+    url('../iconf/iconfont.woff') format('woff'),
+    url('../iconf/iconfont.ttf') format('truetype'),
+    url('../iconf/iconfont.svg#iconfont') format('svg');
+}
+
+.arricon{
+    font-family:"iconfont" !important;
+}
+
+.decorate{
+    height: 60px;
+    background-color: rgb(51,51,51);
+    font-size: 26px;
+    color: white;
+}
+
+.decorate div{
+    float: left;
+    margin-top: 10px;
+    margin-left: 30px;
+}
+
+.decorate div:hover{
+    text-shadow: 0px 0px 7px rgb(255, 255, 255);
+}
+
+.test-title{
+    margin:50px 0px 20px 340px;
+    width: 80px;
+    height: 20px;
+    font-size: 20px;
+    font-weight: bold;
+}
+
+.basicMessage{
+    width: 1245px;
+    height: 50px;
+    margin: 20px 0px 20px 340px;
+    font-size: 16px;
+    color: rgb(123,160,68);
+}
+
+.gap{
+    margin-top: 12px;
+}
+
+hr{
+    border-width: 5px;
+    border-style: groove;
+    /*box-shadow: 0px 5px 5px #999999;*/
+}
+
+.basicMessage span:not(.testCount){
+    margin-right: 20px;
+}
+
+.answerArea{
+    margin-left: 340px;
+}
+
+.answer{
+    margin-top: 30px;
+    margin-bottom: 30px;
+    font-size: 16px;
+}
+
+.answerArea .testKind{
+    font-size: 20px;
+    width: 65px;
+    background-color: rgb(30,144,255);
+    color: white;
+    border-radius: 8px;
+}
+
+.putForm{
+    width: 908px;
+    height: 30px;
+    background-color: #cccccc;
+}
+
+.description{
+    width: 900px;
+    height: 200px;
+    overflow: auto;
+    font-size: 16px;
+    outline-style: none;
+    border: 2px solid #57606f;
+}
+
+.putForm span{
+    color: rgb(30,144,255);
+    font-size: 16px;
+    margin-left: 20px;
+    line-height: 2;
+}
+
+.putForm span:hover{
+    cursor: pointer;
+    text-decoration:underline;
+}
+
+.submit{
+    margin-top: 50px;
+    margin-left: 320px;
+}
+
+.quit{
+    margin-top: 50px;
+    margin-left: 120px;
+
+}
+
+.answers button{
+    height: 50px;
+    width: 100px;
+    background-color:rgb(30,144,255);
+    font-size: 16px;
+    border-radius: 4px;
+    color: white;
+    outline-style: none;
+    border: none;
+    box-shadow: 3px 3px 3px #999999;
+    cursor: pointer;
+}
+
+.answers button:hover{
+    background-image: linear-gradient(-60deg,rgb(95,225,100),rgb(30,144,255));
+}
+
+.giveScore{
+    font-size: 16px;
+    height: 30px;
+    width: 50px;
+}
+
+.singleScore{
+    margin-right: 50px;
+}
+
+.evaluate{
+    margin-top: 50px;
+    height: 30px;
+    width: 300px;
+    font-size: 16px;
+}
+
+.finalAnswer{
+    margin: 30px 0px;
+}
+
+.finalAnswer div{
+    margin:20px 0px;
+}
+
+.rightAnswer{
+    color: rgb(123,160,68);
+}
+
+.explain{
+    height: auto;
+    width: 300px;
+    color: rgb(123,160,68);
+}
+
+
+/*******************************代码题************************************/

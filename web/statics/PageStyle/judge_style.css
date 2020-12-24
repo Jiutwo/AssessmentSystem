@@ -1,0 +1,127 @@
+body,ul{
+    padding: 0;
+    margin: 0;
+    font-size: 12px;
+}
+
+a{
+    text-decoration: none;
+    color: white;
+}
+
+.decorate{
+    height: 60px;
+    background-color: rgb(51,51,51);
+    font-size: 26px;
+    color: white;
+}
+
+.rad{
+    padding-top: 30px;
+    height: 900px;
+    width: 1245px;
+    margin-left: 340px;
+    background-color: rgb(248,241,229);
+}
+
+.itt{
+    background-color: white;
+    height: 310px;
+    width: 1200px;
+    margin-left: 22px;
+    padding-top: 70px;
+    padding-left: 30px;
+    border-radius: 30px;
+}
+
+.alp{
+    float: left;
+    height: 50px;
+    width: 50px;
+    border-radius: 25px;
+    font-size: 16px;
+    text-align: center;
+    line-height: 3;
+    border: 1px solid rgb(64,158,255);
+    background-color: rgb(140,197,255);
+}
+
+.shorter{
+    float: left;
+    width: 900px;
+    margin-left: 15px;
+}
+
+.hole{
+    margin-bottom: 50px;
+    height: 50px;
+    width: 1000px;
+}
+
+.question{
+    width: 900px;
+    height: 80px;
+    margin-top: -30px;
+    margin-bottom: 20px;
+    margin-left: 65px;
+}
+
+.itq{
+    background-color: white;
+    height: 100px;
+    width: 1200px;
+    margin-left: 22px;
+    padding-top: 50px;
+    padding-left: 30px;
+    border-radius: 30px;
+}
+
+.mes{
+    height: 20px;
+    width: auto;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    margin-left: 30px;
+}
+
+.bur{
+    color: rgb(182,157,142);
+}
+
+.out{
+    height: 30px;
+    width: 1200px;
+    background-color: white;
+    margin-left: 22px;
+    padding-top: 50px;
+    padding-left: 30px;
+    border-radius: 10px;
+}
+
+.rad .answer{
+    margin-top: -70px;
+}
+
+.lim{
+    width: 1200px;
+    margin-left: 22px;
+}
+
+.buttons{
+    height: 50px;
+    width: 500px;
+    margin-left: 400px;
+    margin-top: 50px;
+}
+
+.mButton{
+    margin-right: 30px;
+}
+
+.mo{
+    margin-left: 22px;
+}
+
+.nav nav-tabs{
+    margin-left: 22px;
+}

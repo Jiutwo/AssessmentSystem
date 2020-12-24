@@ -1,0 +1,141 @@
+body,ul{
+    padding: 0;
+    margin: 0;
+    font-size: 12px;
+}
+
+a{
+    text-decoration: none;
+    color: white;
+}
+
+.decorate{
+    height: 60px;
+    background-color: rgb(51,51,51);
+    font-size: 26px;
+    color: white;
+}
+
+.decorate div{
+    float: left;
+    margin-top: 10px;
+    margin-left: 30px;
+}
+
+.decorate div:hover{
+    text-shadow: 0px 0px 7px rgb(255, 255, 255);
+}
+
+.testAbout{
+    margin-left: 340px;
+    width: 1245px;
+    height: 60px;
+    padding-top: 30px;
+    background-color:rgb(74,105,201);
+}
+
+.school_test{
+    width: 100px;
+    float: left;
+    font-size: 20px;
+    margin-left: 30px;
+    color: white;
+    text-shadow: 2px 2px 2px white;
+}
+
+.testKind1{
+    width: 200px;
+    float: right;
+    font-size: 16px;
+    border-collapse:collapse ;
+}
+
+.testKind2{
+    position: absolute;
+    top: 91px;
+    right: 340px;
+    width: 200px;
+    font-size: 16px;
+    visibility: hidden;
+}
+
+.condition{
+    width: 45%;
+    float: left;
+    text-align: center;
+    /*line-height: 1;*/
+    cursor: pointer;
+    border: 1px solid #57606f;
+    border-collapse: collapse;
+    transition: border-width 0.25s;
+    background-color: white;
+    background-color: rgb(74,105,201);
+    color: white;
+    border-color: white;
+}
+
+
+.condition:hover{
+    border-width: 4px;
+}
+
+.tests{
+    background-color: rgb(245,245,245);
+    width: 1245px;
+    height: 900px;
+    margin-left: 340px;
+}
+
+.container{
+    margin-left: 30px;
+}
+
+.tests .test{
+    background-color: white;
+    float: left;
+    height: 300px;
+    width: 245px;
+    margin-left: 50px;
+    margin-top: 50px;
+    margin-bottom: 50px;
+    color: #999999;
+    transition: box-shadow 0.25s;
+}
+
+.tests .test:hover{
+    box-shadow: 5px 5px 5px #999999;
+}
+
+/*.msgCon{*/
+/*    margin-left: 50px;*/
+/*}*/
+
+.class1{
+    margin-left: 30px;
+}
+
+.testName{
+    margin-left: 30px;
+}
+
+.class2{
+    margin-left: 80px;
+}
+
+.test .enter{
+    height: 40px;
+    width: 70px;
+    margin-left: 130px;
+    margin-top: 10px;
+    border-radius: 3px;
+    border-style: none;
+    outline-style: none;
+    background-color: rgb(30,144,255);
+    color: white;
+    transition: background-color 0.25s;
+}
+
+.test .enter:hover{
+    color: white;
+    background-image:linear-gradient(120deg,#03a9f4,rgb(30,144,255));
+}

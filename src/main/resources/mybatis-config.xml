@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE configuration
+        PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-config.dtd">
+
+
+<!-- configuration核心配置文件-->
+<configuration>
+
+    <properties resource="database.properties"/> <!--导入properties文件-->
+
+    <settings>
+        <setting name="mapUnderscoreToCamelCase" value="true"/> <!--属性名 驼峰转下划线-->
+    </settings>
+
+    <typeAliases>
+<!--        <typeAlias alias="judgeTopic" type="cn.jiutwo.pojo.JudgeTopic"/>-->
+        <package name="cn.jiutwo.pojo"/>
+        <!--指定一个包名，MyBatis在包名下搜索需要的Java Bean-->
+    </typeAliases>
+
+
+    <!--每一个Mapper.xml都需要在Mybatis核心配置文件中注册-->
+    <mappers>
+        <mapper class="cn.jiutwo.dao.TopicMapper"/>
+        <mapper class="cn.jiutwo.dao.TaskMapper"/>
+        <mapper class="cn.jiutwo.dao.CheckMapper"/>
+        <mapper class="cn.jiutwo.dao.CommentMapper"/>
+        <package name="cn.jiutwo.dao.login" />
+    </mappers>
+
+</configuration>

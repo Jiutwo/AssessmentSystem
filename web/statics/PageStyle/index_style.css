@@ -1,0 +1,584 @@
+.pointer{
+    pointer-events: none;
+}
+.disable{
+    visibility: hidden;
+}
+body,ul{
+    padding: 0;
+    margin: 0;
+    font-size: 12px;
+}
+
+.header{
+    width: 100%;
+    background-color: white;
+    position: fixed;
+    top:0px;
+    left: 0px;
+    z-index: 100;
+}
+
+.el-icon-loading{
+    color: rgb(255,215,103);
+    margin-left: 330px;
+    margin-right: 70px;
+}
+
+a{
+    text-decoration: none;
+}
+
+.logo{
+    width: 100px;
+    height: 50px;
+    margin: 25px 50px 25px 340px;
+    border:black solid 1px;
+    float: left;
+}
+
+.search{
+    height:30px;
+    border-style:none;
+    border-left:1px solid white;
+    border-top:1px solid white;
+    border-bottom:1px solid white;
+    transition:border 0.5s;
+    margin-top:5px;
+    margin-left:400px;
+    outline: none;
+    color: #909399;
+}
+
+.mr{
+    margin-top:10px;
+    float:left;
+}
+
+.search:hover{
+    border-left:1px solid rgb(255,208,75);
+    border-top:1px solid rgb(255,208,75);
+    border-bottom:1px solid rgb(255,208,75);
+}
+
+.button{
+    margin-left:-4px;
+    border-radius:0px;
+    height:30px;
+    width:50px;
+    padding-top:9px;
+    padding-bottom:-8px;
+    border:none;
+    background-color:rgb(255,208,75);
+    text-align:center;
+}
+
+.button:hover{
+    background-color:rgb(255,215,103);
+    /*   background-image:linear-grediant */
+}
+
+.el-icon-user{
+    /*   margin-top:10px; */
+    /*   line-height:2; */
+    margin-left:100px;
+    font-size:30px;
+}
+
+.mc{
+    float:left;
+    margin-top:15px;
+    color:white;
+}
+
+.getIn a{
+    display:inline-block;
+    margin-left:20px;
+    color:white;
+    text-decoration:none;
+}
+
+.getIn a:hover{
+    color: rgb(255,215,103);
+}
+
+.he{
+    margin-left:10px;
+    font-weight:bold;
+    margin-right:10px;
+}
+
+.el-icon-loading{
+    float:left;
+    font-size:30px;
+    color:white;
+}
+
+.login a{
+    float: left;
+    color: rgb(51,51,51);
+    margin-left: 30px;
+    text-decoration : none;
+    font:20px/5 "微软雅黑";
+}
+
+.nav a{
+    color: rgb(51,51,51);
+    text-decoration: none;
+    font-family: "微软雅黑";
+    font:20px/5 "微软雅黑";
+}
+
+.header a:hover:not(.skip a){
+    color: rgb(0,130,223);
+}
+
+.nav li{
+    float : left;
+    list-style-type : none;
+    margin-left: 70px;
+}
+
+.login{
+    background: url("../image/APimage1.png") left no-repeat;
+    padding-left: 20px;
+    float: right;
+    margin-right: 340px;
+}
+
+.hd_search{
+    float: left;
+    margin: 33px 20px 33px 50px;
+}
+
+.hd_search input{
+    height: 34px;
+    width: 200px;
+    border-radius: 30px;
+    border:1px solid rgb(224,224,224);
+    padding: 10px 15px;
+    outline: none;
+    transition: border-color 0.25s;
+}
+
+.hd_search input:hover{
+    border-color: rgb(160, 160, 160);
+}
+
+.hd_search input:focus{
+    background-color: rgb(245,245,245);
+    border-color: rgb(160, 160, 160);
+}
+
+.nav{
+    margin-right:30px;
+    float: left;
+}
+
+.alreadyLogin{
+    position: absolute;
+    height: auto;
+    width: 220px;
+    top: 15px;
+    left:1368px;
+    background-color: rgb(84,92,100);
+    z-index: 10;
+    /*visibility: hidden;*/
+}
+
+.userImg{
+    float: left;
+    width: 50px;
+    height: 50px;
+    margin-top: -10px;
+    background-color: rgb(84,92,100);
+    background: url("../image/assessors.jpg") no-repeat;
+    background-size: 100% 100%;
+    border-radius: 25px;
+    cursor: pointer;
+}
+
+.selfSpace{
+    display: inline-block;
+    margin-top: 0px;
+    cursor: pointer;
+    margin-left: 60px;
+}
+
+.selfSpace a:hover{
+    color: rgb(255,215,103);
+}
+
+.selfSpace a{
+    text-decoration: none;
+    color: white;
+    font-size: 16px;
+}
+
+.alreadyLogin span:hover{
+    color: rgb(0,130,223);
+}
+
+.setting:hover{
+    color: rgb(0,130,223);
+}
+
+/**************************轮播图***************************/
+
+/**********************题目内容**************************/
+
+.scoreAssess{
+    margin-top: 0px;
+    margin-left: 340px;
+    height: auto;
+    width: 1245px;
+}
+
+.tests{
+    margin-bottom: 10px;
+    width:1245px;
+    height:150px;
+    border:1px solid #999999;
+    transition: box-shadow 0.25s;
+    background-color: white;
+    border-radius: 20px;
+}
+
+.image{
+    position: relative;
+    padding-bottom: 30%;
+}
+
+.tests:hover{
+    box-shadow:0px 0px 8px #409EFF;
+}
+
+.imgCon{
+    float:left;
+    width:200px;
+    height:120px;
+    border-radius: 20px;
+    margin-top: 15px;
+    margin-left: 15px;
+    margin-right: 30px;
+    font-size: 100px;
+    background-color: #409EFF;
+    color: white;
+    text-align: center;
+}
+
+.msgCon{
+    float:left;
+    height:150px;
+    width:691px;
+    color:#909399;
+}
+
+.desCon{
+    float:left;
+    height:150px;
+    width:276px;
+    color:#909399;
+    border-left:1px dashed #cccccc;
+}
+
+.testName{
+    margin-top: 20px;
+}
+
+.startTime{
+    margin-right:70px;
+}
+
+.endTime{
+    margin-right: 70px;
+}
+
+.testNum{
+    margin-right:140px;
+}
+
+.school{
+    display: inline-block;
+    margin-top: 20px;
+    margin-right: 70px;
+}
+
+.spacial{
+    display: inline-block;
+    margin-top: 20px;
+    margin-right: 70px;
+}
+
+.author{
+    display: inline-block;
+    margin-top: 20px;
+    margin-right: 190px;
+}
+
+.cat{
+    perspective: 1000px;
+    height: 50px;
+    width: 80px;
+    margin-left: 100px;
+    margin-top: 50px;
+    background-color:rgb(30,144,255);
+    font-size: 16px;
+    border-radius: 4px;
+    color: white;
+    outline-style: none;
+    border-style: none;
+    transition: all 0.5s;
+    box-shadow: 3px 3px 3px #999999;
+    transform-style: preserve-3d;
+}
+
+.cat:hover{
+    background-color: white;
+    color: rgb(30,144,255);
+    transform: rotate3d(0,1,0, 360deg);
+}
+
+@font-face {font-family: 'iconfont';
+    src: url('../iconf/iconfont.eot');
+    src: url('../iconf/iconfont.eot?#iefix') format('embedded-opentype'),
+    url('../iconf/iconfont.woff') format('woff'),
+    url('../iconf/iconfont.ttf') format('truetype'),
+    url('../iconf/iconfont.svg#iconfont') format('svg');
+}
+
+.arricon{
+    font-family:"iconfont" !important;
+}
+
+/*.collection {*/
+/*    float: right;*/
+/*    margin-right: 10px;*/
+/*    font-size: 30px;*/
+/*}*/
+
+/*.collection a{*/
+/*    color:#999999;*/
+/*    text-decoration: none;*/
+/*}*/
+
+/*.collection a:hover{*/
+/*    color: rgb(255,168,0);*/
+/*}*/
+
+.mission{
+    margin-bottom: 20px;
+    font-size: 26px;
+    text-shadow: 0px 5px 0px #cccccc;
+}
+
+.scoreAssess hr{
+    border-style: dashed;
+    border-color: #999999;
+    margin-bottom: 30px;
+}
+
+.space{
+    height: 60px;
+}
+
+.downMenu{
+    width: 250px;
+    height: 510px;
+    position: absolute;
+    top:47px;
+    left: 1284px;
+    background-color: white;
+    z-index: 10;
+    box-shadow: 0px 0px 5px #999999;
+    /*visibility: hidden;*/
+}
+
+.d-userImg{
+    width: 100px;
+    height: 100px;
+    position: absolute;
+    top: 0px;
+    border-radius: 50px;
+    z-index: 30;
+    left: 1360px;
+    background: url("../image/assessors.jpg") no-repeat;
+    background-size: 100%;
+    cursor: pointer;
+    /*visibility: hidden;*/
+}
+
+.turnImage{
+    height: 230px;
+    width: 1245px;
+    margin-left: 340px;
+}
+
+.el-carousel__item h3 {
+    color: #475669;
+    font-size: 14px;
+    opacity: 0.75;
+    line-height: 200px;
+    margin: 0;
+}
+
+.el-carousel__item:nth-child(2n) {
+    background-color: #99a9bf;
+}
+
+.el-carousel__item:nth-child(2n+1) {
+    background-color: #d3dce6;
+}
+
+.message{
+    position: absolute;
+}
+
+.username{
+    margin-left: 50%;
+    margin-top: 70px;
+    width: 100px;
+    font-size: 20px;
+    text-align: center;
+}
+
+.message .school{
+    margin-left: 50%;
+    margin-top: 10px;
+    font-size: 12px;
+    width: 100px;
+    text-align: center;
+    color: dodgerblue;
+}
+
+.profession{
+    text-align: center;
+    margin-left: 50%;
+    margin-top: 10px;
+    font-size: 16px;
+    width: 100px;
+    height: 20px;
+    border-radius: 10px;
+    background-color: rgb(86,181,171);
+    color: white;
+}
+
+.permission{
+    position: absolute;
+    top:135px;
+    left: 157px;
+    height: 20px;
+    width: 20px;
+    font-size: 16px;
+    color: rgb(255,205,0);
+}
+
+.skip ul{
+    margin-top: 170px;
+    height: 338px;
+    width: 100%;
+    list-style: none;
+}
+
+.skip li{
+    width: 100%;
+    height: 20%;
+    border-top:1px solid #57606f;
+}
+
+.skip a{
+    margin-left: 40px;
+    height: 100%;
+    width: 100%;
+    font-size: 16px;
+    line-height: 4;
+    color: black;
+    outline-style: none;
+}
+
+.skip li:hover{
+    background-color: rgb(242,242,242);
+    cursor: pointer;
+}
+
+.rankingList{
+    position: absolute;
+    top: 215px;
+    left: 1620px;
+    height: 580px;
+    width: 262px;
+    /*border: 1px solid black;*/
+    background-color: rgb(255,235,0);
+}
+
+.outer{
+    background-color: white;
+    width: 222px;
+    height: 540px;
+    margin-top: 20px;
+    margin-left: 20px;
+}
+
+.t{
+    font-size: 20px;
+    color: rgb(248,182,45);
+}
+
+.rank{
+    height: 504px;
+    width: 222px;
+    overflow: auto;
+}
+
+.rankingList .username{
+    margin-left: 40px;
+    font-size: 16px;
+}
+
+.champion{
+    position: absolute;
+    left: 56px;
+    top: 50px;
+    color: rgb(248,182,45);
+    font-size: 26px;
+}
+
+.order{
+    float: left;
+    height: 20px;
+    width: 20px;
+    font-size: 16px;
+    text-align: center;
+}
+
+.frontPeople{
+    background-color: rgb(30,144,255);
+}
+
+.score{
+    margin-left: 35px;
+    font-size: 16px;
+    color: red;
+}
+
+.rankingList li{
+    height: 10%;
+    width: 100%;
+}
+
+.mine{
+    position: absolute;
+    top: 550px;
+    height: 80px;
+    width: 100%;
+    background-color:  rgb(51,51,51);
+}
+
+.outer1{
+    margin-left: 20px;
+    margin-top: 20px;
+    width: 222px;
+    height: 40px;
+    line-height: 3;
+    color: white;
+}

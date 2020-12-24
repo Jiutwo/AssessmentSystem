@@ -1,0 +1,209 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+
+<!-- configuration核心配置文件-->
+<mapper namespace="cn.jiutwo.dao.TaskMapper">
+
+    <resultMap id="TaskMap" type="task">
+        <result property="founder" column="username"/>
+    </resultMap>
+
+    <insert id="addTask" parameterType="task">
+        insert into db_ojsystem_test.t_task(tid, title, count, topicid, topicscore, topicanswer, status, endtime, createtime, founderid)
+        values(#{tid}, #{title}, #{count}, #{topicid}, #{topicscore}, #{topicanswer}, #{status}, #{endtime}, #{createtime}, #{founderid})
+    </insert>
+
+    <delete id="deleteTask" parameterType="String">
+        delete from db_ojsystem_test.t_task where tid = #{tid}
+    </delete>
+
+    <update id="updateTask" parameterType="task">
+        update db_ojsystem_test.t_task set title=#{title}, count=#{count}, topicid=#{topicid}, topicscore=#{topicscore},
+            topicanswer=#{topicanswer},status=#{stauts}, endtime=#{endtime}, createtime=#{createtime}, founderid=#{fouderid}
+        where tid = #{tid}
+    </update>
+
+    <select id="queryTaskByTaskId" parameterType="String" resultMap="TaskMap">
+        select tid, title, count, topicid, topicscore, topicanswer, a.status, endtime, a.createtime, founderid, b.username
+        from db_ojsystem_test.t_task a, db_ojsystem_test.t_assessment b
+        where a.founderid = b.uid and tid = #{tid}
+    </select>
+
+    <select id="queryTaskByFounderid" parameterType="String" resultMap="TaskMap">
+        select tid, title, count, topicid, topicscore, topicanswer, a.status, endtime,
+               a.createtime, founderid, b.username
+        from db_ojsystem_test.t_task a, db_ojsystem_test.t_assessment b
+        where a.founderid = b.uid and founderid = #{founderId}
+    </select>
+
+    <select id="queryTaskByUserId" parameterType="String" resultMap="TaskMap">
+        select d.tid, d.title, d.count, d.topicid, d.topicscore, d.topicanswer, d.status, d.endtime,
+               d.createtime, d.founderid, e.username
+        from db_ojsystem_test.t_release a,
+             db_ojsystem_test.t_group b,
+             db_ojsystem_test.t_group_middle c,
+             db_ojsystem_test.t_task d,
+             db_ojsystem_test.t_assessment e
+        where e.uid = d.founderid and e.uid = b.founder_id and b.gid = c.group_id and a.group_id = c.group_id
+          and c.user_id = #{userId}
+    </select>
+
+
+    <select id="queryAllPulicTask" resultMap="TaskMap">
+        select distinct d.tid, d.title, d.count, d.topicid, d.topicscore, d.topicanswer, d.status, d.endtime,
+               d.createtime, d.founderid, e.username from
+             db_ojsystem_test.t_release a,
+             db_ojsystem_test.t_group b,
+             db_ojsystem_test.t_group_middle c,
+             db_ojsystem_test.t_task d,
+             db_ojsystem_test.t_assessment e
+        where e.uid = d.founderid and e.uid = b.founder_id and b.gid = c.group_id and a.group_id = c.group_id and a.task_id = d.tid
+        and d.status = 2
+    </select>
+
+
+
+    <!---->
+    <!--组操作-->
+    <!---->
+
+    <select id="addGroup" parameterType="group">
+        insert into db_ojsystem_test.t_group(gid, group_name, founder_id)
+        values (#{gid}, #{groupName}, #{founderId})
+    </select>
+
+    <delete id="deleteGroup" parameterType="String">
+        delete from db_ojsystem_test.t_group where gid = #{gid}
+    </delete>
+
+    <update id="updateGroup" parameterType="group">
+        update db_ojsystem_test.t_group set group_name = #{groupName}
+        where gid = #{gid};
+    </update>
+
+    <select id="queryGroupByFounderId" parameterType="String" resultType="group">
+        select *
+        from db_ojsystem_test.t_group
+        where founder_id = #{founderId}
+    </select>
+
+    <select id="queryAllGroup" resultType="group">
+        select *
+        from db_ojsystem_test.t_group;
+    </select>
+
+    <!--group_middle 表的主键自增 不用手动生成-->
+    <insert id="joinGroup">
+        insert into db_ojsystem_test.t_group_middle(group_id, status)
+        values (#{groupId}, 0)
+    </insert>
+
+    <update id="quitGroup">
+        update db_ojsystem_test.t_group_middle set status = -1
+        where user_id = #{userId} and group_id = #{groupId}
+    </update>
+
+    <delete id="deleteUserFromGroup">
+        delete from db_ojsystem_test.t_group_middle
+        where user_id = #{userId} and group_id = #{groupId}
+    </delete>
+
+
+    <!---->
+    <!--发布考核任务，发布考核任务后需要对task表操作，修改状态-->
+    <!---->
+
+    <insert id="releaseTask">
+        insert into db_ojsystem_test.t_release(task_id, group_id)
+        values (#{taskId}, #{groupId})
+    </insert>
+
+
+
+    <delete id="deleteRelease">
+        delete from db_ojsystem_test.t_release
+        where task_id = #{taskId} and group_id = #{groupId}
+    </delete>
+
+
+    <update id="updateTaskStatus">
+        update db_ojsystem_test.t_task set status = #{status}
+        where tid = #{tid}
+    </update>
+
+
+    <insert id="addIntegral">
+        insert into db_ojsystem_test.t_integral(user_id, integral) values(#{userId}, #{integral})
+    </insert>
+
+    <update id="updateIntegral">
+        update db_ojsystem_test.t_integral set integral = integral + #{integral} where user_id = #{userId}
+    </update>
+
+    <delete id="deleteIntegral" parameterType="String">
+        delete from db_ojsystem_test.t_integral where integral = #{integral}
+    </delete>
+
+    <select id="queryIntegralByUserId" parameterType="String">
+        select * from db_ojsystem_test.t_integral
+        where user_id = #{userId}
+    </select>
+
+    <select id="queryTopIntegral" parameterType="int" resultType="rankList">
+        select a.integral, b.username from db_ojsystem_test.t_integral a, db_ojsystem_test.t_user b
+        where  a.user_id = b.uid  order by integral desc limit #{top};
+    </select>
+
+    <select id="queryMyCompletedTask" parameterType="String" resultType="task">
+        select distinct tid, title, count, topicid, topicscore, topicanswer, b.status, endtime,
+               createtime, b.founderid, c.username
+        from db_ojsystem_test.t_record a,
+             db_ojsystem_test.t_task b,
+             db_ojsystem_test.t_assessment c
+        where a.task_id = b.tid and b.founderid = c.uid and a.user_id = #{userId}
+    </select>
+
+
+    <select id="queryMyToDoTask" parameterType="String" resultType="task">
+        select distinct tid, title, count, topicid, topicscore, topicanswer, b.status, endtime,
+               createtime, b.founderid, c.username
+        from db_ojsystem_test.t_record a,
+             db_ojsystem_test.t_task b,
+             db_ojsystem_test.t_assessment c,
+             db_ojsystem_test.t_group_middle d,
+             db_ojsystem_test.t_group e
+        where a.task_id=b.tid and b.founderid = c.uid
+          and d.user_id = #{userId} and d.group_id=e.gid and e.founder_id=c.uid and c.uid = b.founderid
+          and a.user_id not in(#{userId})
+    </select>
+
+
+    <select id="queryReleasedTask" resultType="task">
+        select d.tid, d.title, d.count, d.topicid, d.topicscore, d.topicanswer, d.status, d.endtime,
+               d.createtime, d.founderid, e.username
+        from db_ojsystem_test.t_release a,
+             db_ojsystem_test.t_group b,
+             db_ojsystem_test.t_group_middle c,
+             db_ojsystem_test.t_task d,
+             db_ojsystem_test.t_assessment e
+        where e.uid = d.founderid and e.uid = b.founder_id and b.gid = c.group_id and a.group_id = c.group_id
+          and c.user_id = #{userId} and d.status = 1;
+    </select>
+
+
+    <select id="queryToReleaseTask">
+        select d.tid, d.title, d.count, d.topicid, d.topicscore, d.topicanswer, d.status, d.endtime,
+               d.createtime, d.founderid, e.username
+        from db_ojsystem_test.t_release a,
+             db_ojsystem_test.t_group b,
+             db_ojsystem_test.t_group_middle c,
+             db_ojsystem_test.t_task d,
+             db_ojsystem_test.t_assessment e
+        where e.uid = d.founderid and e.uid = b.founder_id and b.gid = c.group_id and a.group_id = c.group_id
+          and c.user_id = #{userId} and d.status = 0;
+    </select>
+
+</mapper>

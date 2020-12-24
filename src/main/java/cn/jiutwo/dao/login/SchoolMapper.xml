@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<!--namespace=绑定一个对应的Dao/Mapper接口-->
+<mapper namespace="cn.jiutwo.dao.login.SchoolMapper">
+
+<!--    根据注册码寻找相应学校-->
+    <select id="findSchoolCode" parameterType="string" resultType="school">
+        select * from db_ojsystem_test.t_school where school_code = #{schoolCode};
+    </select>
+
+<!--    寻找所有的省份-->
+    <select id="findProvince" resultType="string">
+       select distinct province from db_ojsystem_test.t_school;
+   </select>
+
+<!--    根据省份，寻找所有的学校名字-->
+    <select id="findSName" resultType="string">
+       select  school_name from db_ojsystem_test.t_school where province = #{province};
+   </select>
+
+<!--    根据province和SchoolName查找相应School并返回schoolId-->
+    <select id="findSchoolId" parameterType="string" resultType="string">
+       select school_id from db_ojsystem_test.t_school where province = #{province} and school_name = #{schoolName};
+   </select>
+</mapper>

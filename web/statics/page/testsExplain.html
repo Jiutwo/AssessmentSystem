@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>题解讨论</title>
+    <script src="../JavaScript/vue.js"></script>
+    <!-- 引入样式 -->
+    <link rel="stylesheet" href="https://unpkg.com/element-ui/lib/theme-chalk/index.css">
+    <!-- 引入组件库 -->
+    <script src="https://unpkg.com/element-ui/lib/index.js"></script>
+    <link rel="stylesheet" href="../PageStyle/testsExplain_style.css">
+</head>
+<body>
+<div class="decorate"><div><a href="../index.html">< 退出题解</a></div></div></div>
+<div class="rad">
+    <template>
+        <el-tabs v-model="activeName" @tab-click="handleClick">
+            <el-tab-pane label="题目" name="first"></el-tab-pane>
+            <el-tab-pane label="评论" name="second"></el-tab-pane>
+            <el-tab-pane label="题解" name="third"></el-tab-pane>
+        </el-tabs>
+    </template>
+    <div class="fro">
+        <span class="tno">1、</span><span class="testName">单纯形法</span>
+    </div>
+    <div class="lia">
+        <code class="testDetail">
+            /**
+            * Definition for singly-linked list.
+            * public class ListNode {
+            *     int val;
+            *     ListNode next;
+            *     ListNode(int x) { val = x; }
+            * }
+            */
+            class Solution {
+            public ListNode addTwoNumbers(ListNode l1, ListNode l2) {
+            ListNode root = new ListNode(0);
+            ListNode cursor = root;
+            int carry = 0;
+            while(l1 != null || l2 != null || carry != 0) {
+            int l1Val = l1 != null ? l1.val : 0;
+            int l2Val = l2 != null ? l2.val : 0;
+            int sumVal = l1Val + l2Val + carry;
+            carry = sumVal / 10;
+
+            ListNode sumNode = new ListNode(sumVal % 10);
+            cursor.next = sumNode;
+            cursor = sumNode;
+
+            if(l1 != null) l1 = l1.next;
+            if(l2 != null) l2 = l2.next;
+            }
+
+            return root.next;
+            }
+            }
+        </code>
+    </div>
+    <hr>
+    <div class="func arricon">
+        <span class="lin c1">&#xe60c;<span class="like">3</span></span>
+        <span class="lin c2">&#xe612;<span class="collection">3</span></span>
+        <el-tooltip placement="top">
+            <div slot="content">点击给作者写信！</div>
+            <span class="feedBack lin">&#xe628;</span>
+        </el-tooltip>
+    </div>
+</div>
+<script>
+    var app = new Vue({
+        el:'.rad',
+        data() {
+            return {
+                activeName: 'first'
+            };
+        },
+        methods: {
+            handleClick(tab, event) {
+                console.log(tab, event);
+            }
+        }
+    });
+</script>
+</body>
+</html>

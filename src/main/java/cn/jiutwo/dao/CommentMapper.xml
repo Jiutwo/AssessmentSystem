@@ -1,0 +1,159 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="cn.jiutwo.dao.CommentMapper">
+    <!--定义collect的resultMap-->
+    <resultMap id="collectMap" type="collect">
+        <id property="collectId" column="collect_id"></id>
+        <result property="answerKeyId" column="answerkey_id"></result>
+        <result property="userId" column="user_id"></result>
+        <result property="groupName" column="group_name"></result>
+    </resultMap>
+
+    <insert id="addCollect">
+        insert into db_ojsystem_test.collect(answerkey_id,user_id) values(#{answerKeyId},#{userId})
+    </insert>
+
+    <insert id="addCollectToGroup">
+        insert into db_ojsystem_test.collect(answerkey_id,user_id,group_name) values(#{answerKeyId},#{userId},#{groupName})
+    </insert>
+
+    <insert id="addNewGroupByUserIdAndGroupName">
+        insert into db_ojsystem_test.collect(user_id,group_name) VALUES(#{userId},#{groupName})
+    </insert>
+
+    <delete id="deleteCollect">
+        delete from db_ojsystem_test.collect where answerKey_id = #{answerKeyId}
+                              and user_id = #{userId}
+    </delete>
+
+    <delete id="deleteGroupByUserIdAndGroupName">
+        delete from db_ojsystem_test.collect where user_id=#{userId} and group_name=#{groupName}
+    </delete>
+
+    <update id="updateGroupNameByanswerKeyIdAndUserId">
+        update db_ojsystem_test.collect set group_name=#{groupName} where answerKey_id=#{answerKeyId} and user_id=#{userId}
+    </update>
+
+    <select id="queryCollectExistByanswerKeyIdAndUserId" resultType="int">
+        select count(1) from db_ojsystem_test.collect where answerkey_id = #{answerKeyId} and user_id = #{userId}
+    </select>
+
+    <select id="getAllCollectionsByUserId" resultMap="collectMap">
+        select * from db_ojsystem_test.collect
+    </select>
+
+    <select id="getAllGroupNamesByUserId" resultType="String" parameterType="String">
+        select DISTINCT group_name from db_ojsystem_test.collect where user_id=#{userId};
+    </select>
+
+    <select id="getAllanswerKeyIdsByGroupNameAndUserId" resultType="String">
+        select answerKey_id from db_ojsystem_test.collect where user_id=#{userId} and group_name=#{groupName}
+    </select>
+
+    <select id="getCountByUserIdAndGroupName" resultType="int">
+        select count(1) from db_ojsystem_test.collect where user_id= #{userId} and group_name = #{groupName}
+    </select>
+
+    <select id="getCountByanswerKeyId" resultType="int">
+        select count(1)
+        from db_ojsystem_test.collect
+        where answerKey_id=#{answerKeyId}
+    </select>
+
+
+
+
+    <!--定义comment的resultMap-->
+    <resultMap id="commentMap" type="comment">
+        <id property="commentId" column="comment_id"></id>
+        <result property="commentContent" column="comment_content"></result>
+        <result property="userId" column="user_id"></result>
+        <result property="postId" column="post_id"></result>
+        <result property="commentDate" column="comment_date"></result>
+        <result property="replyId" column="reply_id"></result>
+        <result property="answerKeyId" column="answerKey_id"></result>
+    </resultMap>
+
+    <!--评论题解-->
+    <insert id="commentAnswer" parameterType="comment">
+        insert into db_ojsystem_test.comment(
+            comment_content,
+            user_id,
+            post_id,
+            comment_date,
+            reply_id,
+            answerkey_id
+        )values(#{commentContent},#{userId},#{postId},#{commentDate},#{replyId},#{answerKeyId})
+    </insert>
+
+    <!--根据评论编号,评论者编号进行删除评论-->
+    <delete id="deleteComment">
+        delete from db_ojsystem_test.comment where
+            comment_id=#{commentId} and
+            user_id=#{userId}
+    </delete>
+
+    <!--根据题解编号，查询题解下的所有评论-->
+    <select id="getAllCommentsByPostId" resultMap="commentMap" parameterType="String">
+        select * from db_ojsystem_test.comment where
+            post_id=#{postId}
+    </select>
+
+    <!--<select id="getCountByTaskId2" resultType="int">
+        select count(1)
+        from db_ojsystem_test.comment
+        where answerkey_id=#{answerKeyId}
+    </select>-->
+
+
+    <!--定义collect的resultMap-->
+    <resultMap id="answerKeyMap" type="answerKey">
+        <id property="aid" column="aid"></id>
+        <result property="codeId" column="code_id"></result>
+        <result property="userId" column="user_id"></result>
+        <result property="content" column="content"></result>
+        <result property="like" column="like"></result>
+        <result property="browse" column="browse"></result>
+    </resultMap>
+
+    <select id="getAnswerKeyByAid" resultMap="answerKeyMap" parameterType="String">
+        select * from db_ojsystem_test.t_answerkey
+        where aid = #{aid};
+    </select>
+
+    <select id="getLikeByAid" resultType="int" parameterType="String">
+        select `like`
+        from db_ojsystem_test.t_answerkey
+        where aid=#{aid}
+    </select>
+
+    <update id="updateLikeByAidAndCount">
+        update db_ojsystem_test.t_answerkey
+        set `like`=#{changeCount}
+        where aid=#{aid}
+    </update>
+
+    <select id="getBrowseByAid" resultType="int" parameterType="String">
+        select browse
+        from db_ojsystem_test.t_answerkey
+        where aid=#{aid}
+    </select>
+
+    <update id="updateBrowseByAidAndCount">
+        update db_ojsystem_test.t_answerkey
+        set browse =#{changeCount}
+        where aid=#{aid}
+    </update>
+
+
+    <select id="getAllAnswerKeyByTopicId" resultType="answerKey">
+        select *
+        from db_ojsystem_test.t_answerkey
+        where code_id = #{codeId};
+    </select>
+
+
+
+</mapper>

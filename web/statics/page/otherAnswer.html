@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>题解讨论</title>
+    <script src="../JavaScript/vue.js"></script>
+    <!-- 引入样式 -->
+    <link rel="stylesheet" href="https://unpkg.com/element-ui/lib/theme-chalk/index.css">
+    <!-- 引入组件库 -->
+    <script src="https://unpkg.com/element-ui/lib/index.js"></script>
+    <link rel="stylesheet" href="../PageStyle/otherAnswer_style.css">
+</head>
+<body>
+<div class="decorate"><div><a href="../index.html">< 退出题解</a></div></div></div>
+<div class="rad">
+    <template>
+        <el-tabs v-model="activeName" @tab-click="handleClick">
+            <el-tab-pane label="题目" name="first"></el-tab-pane>
+            <el-tab-pane label="评论" name="second"></el-tab-pane>
+            <el-tab-pane label="题解" name="third"></el-tab-pane>
+        </el-tabs>
+    </template>
+    <div class="people">
+        <div v-for="(it,index) in  AnswerKey">
+            <div class="ms">
+                <template>
+                    <div class="demo-type">
+                        <div>
+                            <el-avatar src="https://cube.elemecdn.com/0/88/03b0d39583f48206768a7534e55bcpng.png"></el-avatar>
+                        </div>
+                    </div>
+                </template>
+                <div class="username">{{it.username}}</div>
+            </div>
+            <div class="tet">
+                {{it.content}}
+            </div>
+        </div>
+
+        <div class="sie">
+            <span class="arricon ip">&#xe60c;<span class="likeComments">3</span></span>
+            <el-button type="text" @click="drawer = true" class="el-icon-view"></el-button>
+        </div>
+    </div>
+    <el-drawer
+            title="我是标题"
+            :visible.sync="drawer"
+            :with-header="false">
+        <div class="chouTi">
+            <div class="people1">
+                <el-avatar src="https://cube.elemecdn.com/0/88/03b0d39583f48206768a7534e55bcpng.png" class="userImg"></el-avatar>
+                <div class="username">user1234</div>
+            </div>
+            <div class="ico">
+                <span class="arricon ip">&#xe60c;<span class="likeComments">3</span></span>
+            </div>
+            <hr>
+            <div class="discussion">
+                将长度较短的链表在末尾补零使得两个连表长度相等，再一个一个元素对其相加（考虑进位）
+
+                获取两个链表所对应的长度
+                在较短的链表末尾补零
+                对齐相加考虑进位
+                将长度较短的链表在末尾补零使得两个连表长度相等，再一个一个元素对其相加（考虑进位）
+
+                获取两个链表所对应的长度
+                在较短的链表末尾补零
+                对齐相加考虑进位
+                将长度较短的链表在末尾补零使得两个连表长度相等，再一个一个元素对其相加（考虑进位）
+
+                获取两个链表所对应的长度
+                在较短的链表末尾补零
+                对齐相加考虑进位
+            </div>
+            <div class="feedBack">
+                    <h2>快来写下你的评论吧！<i class="el-icon-edit-outline"></i></h2>
+                    <el-input
+                            type="textarea"
+                            :rows="8"
+                            class="feed"
+                            placeholder="请输入内容"
+                            v-model="textarea">
+                    </el-input>
+            </div>
+        </div>
+    </el-drawer>
+</div>
+<script>
+    var app = new Vue({
+        el:'.rad',
+        data:{
+            AnswerKey:[
+                {
+                    username:"",
+                    content:'',
+                }
+            ],
+            activeName: 'third',
+            textarea:'',
+            drawer: false,
+            direction: 'btt',
+        },
+        methods: {
+            handleClick(tab, event) {
+                console.log(tab, event);
+            },
+            handleClose(done) {
+                this.$confirm('确认关闭？')
+                    .then(_ => {
+                        done();
+                    })
+                    .catch(_ => {});
+            }
+        }
+    });
+</script>
+</body>
+</html>

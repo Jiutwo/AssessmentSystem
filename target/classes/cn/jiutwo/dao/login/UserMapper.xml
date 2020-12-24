@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<!--namespace=绑定一个对应的Dao/Mapper接口-->
+<mapper namespace="cn.jiutwo.dao.login.UserMapper">
+
+<!--    查询学号是否已注册-->
+    <select id="findSno" parameterType="string" resultType="user">
+        select uid,sno,username,password,school_id,email,email_code,status
+         from db_ojsystem_test.t_user where sno = #{sno};
+    </select>
+
+<!--    判断邮箱是否已被注册-->
+    <select id="findEmail" parameterType="string" resultType="user">
+        select * from db_ojsystem_test.t_user where email = #{email};
+    </select>
+
+<!--    注册用户-->
+    <insert id="regist" parameterType="user">
+        insert into db_ojsystem_test.t_user(uid,sno,username,password,school_id,email,email_code,status) values
+        (#{uid},#{sno},#{username},#{password},#{schoolId},#{email},#{emailCode},#{status})
+    </insert>
+
+<!--    根据激活码查询用户对象-->
+    <select id="findEmailCode" parameterType="string" resultType="user">
+        select * from db_ojsystem_test.t_user where email_code = #{emailCode};
+    </select>
+
+<!--    修改相应用户邮箱激活状态-->
+    <update id="updateStatus" parameterType="user">
+        update db_ojsystem_test.t_user set status = 'Y' where uid = #{uid};
+    </update>
+
+<!--    用户登入-->
+    <select id="findUser"  resultType="user">
+        select * from db_ojsystem_test.t_user a, db_ojsystem_test.t_school b
+        where sno = #{sno} and a.password = #{password} and a.school_id = b.school_id;
+    </select>
+
+
+
+
+
+    <!--    根据用户sno查询所有收件人-->
+    <select id="findReceiveEnvelope"  resultType="envelope">
+        select * from db_ojsystem_test.t_envelope where addressee_sno = #{addressee_sno} order by date;
+    </select>
+
+
+    <!--    根据用户sno查询所有发件人-->
+    <select id="findSendEnvelope"  resultType="envelope">
+        select * from db_ojsystem_test.t_envelope where addresser_sno = #{addresser_sno} order by date;
+    </select>
+
+    <!--    根据邮件eid删除邮件信息-->
+    <delete id="delEnvelopeById" parameterType="string">
+        delete from db_ojsystem_test.t_envelope where eid = #{eid};
+    </delete>
+
+    <!--    根据eid查询邮件信息-->
+    <select id="findContentById"  resultType="envelope">
+        select * from db_ojsystem_test.t_envelope where eid = #{eid};
+    </select>
+
+    <!--    将传进来的envelope存入数据库-->
+    <insert id="addEnvelope" parameterType="envelope">
+        insert into db_ojsystem_test.t_envelope(eid,addressee_sno,addresser_sno,date,content) values
+            (#{eid},#{addresseeSno},#{addresserSno},#{date},#{content});
+    </insert>
+
+    <update id="setStatus">
+        update db_ojsystem_test.t_envelope set status = #{status}
+        where eid = #{eid}
+    </update>
+</mapper>

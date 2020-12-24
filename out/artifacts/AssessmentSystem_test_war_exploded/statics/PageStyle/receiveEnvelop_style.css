@@ -1,0 +1,304 @@
+.disable{
+    visibility: hidden;
+}
+
+body,ul{
+    padding: 0;
+    margin: 0;
+    font-size: 12px;
+}
+
+.header{
+    height: 100px;
+    width: 100%;
+    box-shadow: 0 0 10px #999999;
+    background-color: white;
+    position: fixed;
+    top:0px;
+    left: 0px;
+    z-index: 100;
+}
+
+a{
+    text-decoration: none;
+}
+
+li{
+    list-style: none;
+}
+
+.logo{
+    width: 100px;
+    height: 50px;
+    margin: 25px 50px 25px 340px;
+    border:black solid 1px;
+    float: left;
+}
+
+.login a{
+    float: left;
+    color: rgb(51,51,51);
+    margin-left: 30px;
+    text-decoration : none;
+    font:20px/5 "微软雅黑";
+}
+
+.nav a{
+    color: rgb(51,51,51);
+    text-decoration: none;
+    font:20px/5 "微软雅黑";
+}
+
+.header a:hover{
+    color: rgb(0,130,223);
+}
+
+.nav li{
+    float : left;
+    list-style-type : none;
+    margin-left: 70px;
+}
+
+.login{
+    background: url("../image/APimage1.png") left no-repeat;
+    padding-left: 20px;
+    float: right;
+    margin-right: 340px;
+}
+
+.hd_search{
+    float: left;
+    margin: 33px 20px 33px 50px;
+}
+
+.hd_search input{
+    height: 34px;
+    width: 200px;
+    border-radius: 30px;
+    border:1px solid rgb(224,224,224);
+    padding: 10px 15px;
+    outline: none;
+    transition: border-color 0.25s;
+}
+
+.hd_search input:hover{
+    border-color: rgb(160, 160, 160);
+}
+
+.hd_search input:focus{
+    background-color: rgb(245,245,245);
+    border-color: rgb(160, 160, 160);
+}
+
+.nav{
+    margin-right:30px;
+    float: left;
+}
+
+.alreadyLogin{
+    position: absolute;
+    height: 70px;
+    width: 220px;
+    top: 15px;
+    left:1368px;
+    background-color: white;
+}
+
+.userImg{
+    float: left;
+    width: 70px;
+    height: 100%;
+    background-color: white;
+    background: url("../image/assessors.jpg") no-repeat;
+    background-size: 100% 100%;
+    border-radius: 35px;
+    cursor: pointer;
+}
+
+.selfSpace{
+    display: inline-block;
+    margin-top: 23px;
+    cursor: pointer;
+}
+
+.selfSpace a{
+    text-decoration: none;
+    color: #999999;
+    font-size: 16px;
+}
+
+.alreadyLogin span:hover{
+    color: rgb(0,130,223);
+}
+
+.setting{
+    float: left;
+    width: 32px;
+    height: 32px;
+    font-size: 32px;
+    margin: 19px 20px;
+    color: #999999;
+    cursor: pointer;
+}
+
+.setting:hover{
+    color: rgb(0,130,223);
+}
+
+@font-face {font-family: 'iconfont';
+    src: url('../iconf/iconfont.eot');
+    src: url('../iconf/iconfont.eot?#iefix') format('embedded-opentype'),
+    url('../iconf/iconfont.woff') format('woff'),
+    url('../iconf/iconfont.ttf') format('truetype'),
+    url('../iconf/iconfont.svg#iconfont') format('svg');
+}
+
+.arricon{
+    font-family:"iconfont" !important;
+}
+
+.self{
+    display: inline-block;
+    width: 980px;
+    height: 800px;
+    margin-top: 130px;
+    margin-left: 450px;
+    box-shadow: 0 0 5px #999999;
+}
+
+.leftPart{
+    float: left;
+    width: 150px;
+    height: 800px;
+    background-color: rgb(245,245,245);
+}
+
+.selfContent{
+    width: 100%;
+    height: 120px;
+    text-align: center;
+    line-height: 6;
+    font-size: 20px;
+}
+
+.leftPart li{
+    width: 150px;
+    height: 120px;
+    text-align: center;
+    line-height: 6;
+    font-size: 20px;
+}
+
+.leftPart a{
+    display: inline-block;
+    width: 100%;
+    height: 100%;
+    color: black;
+}
+
+.leftPart a:hover{
+    /*background-color: rgb(213,234,253);*/
+    background-color: rgb(225,225,225);
+}
+
+.rightPart{
+    float: left;
+    height: 800px;
+    width: 830px;
+}
+
+.envelopNav{
+    height: 150px;
+    width: 800px;
+}
+
+.envelop{
+    width: 714px;
+    height: 70px;
+    border-radius: 5px;
+    margin-left: 86px;
+    font-size: 16px;
+    font-weight: bold;
+    line-height: 4;
+    margin-bottom: 10px;
+}
+
+.temple{
+    margin-left: 20px;
+    margin-right: 0px;
+}
+
+.author{
+    margin-right: 10px;
+}
+
+.des{
+    display: inline-block;
+    height: 40px;
+    width: 70px;
+    line-height: 2;
+    border-radius: 5px;
+    margin-right: 10px;
+    outline-style: none;
+    border-style: none;
+    font-weight: normal;
+    background-color: white;
+}
+
+.des:hover{
+    background-color: rgb(51,51,51);
+    color: white;
+}
+
+.des:focus{
+    background-color: rgb(51,51,51);
+    color: white;
+}
+.delete{
+    height: 40px;
+    width: 70px;
+    border-radius: 5px;
+    border-style: none;
+    font-size: 16px;
+}
+
+.delete:hover{
+    background-color: rgb(51,51,51);
+    color: white;
+}
+
+.delete:focus{
+    background-color: rgb(51,51,51);
+    color: white;
+}
+
+.color1{
+    background-color: rgb(223,240,216);
+    border: 1px solid rgb(214,233,198);
+}
+
+.color2{
+    background-color: rgb(217,237,247);
+    border: 1px solid rgb(188,232,241);
+}
+
+.color3{
+    background-color: rgb(252,248,227);
+    border: 1px solid rgb(250,235,204);
+}
+
+.color4{
+    background-color: rgb(242,222,222);
+    border: 1px solid rgb(235,204,209);
+}
+
+.mk{
+    float: right;
+    margin-right: 10px;
+}
+
+.desEnvelop{
+    overflow: auto;
+    width: 830px;
+    height: 640px;
+}

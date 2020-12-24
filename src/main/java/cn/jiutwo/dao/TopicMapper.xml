@@ -1,0 +1,187 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+
+<!-- configuration核心配置文件-->
+<mapper namespace="cn.jiutwo.dao.TopicMapper">
+<!--parameterType使用了别名，扫描了pojo包，可以别名默认为实体类的首字母小写-->
+
+    <select id="queryAllType" resultType="type">
+        select * from db_ojsystem_test.t_type;
+    </select>
+
+   <insert id="addMultipleTopic" parameterType="multipleTopic">
+       insert into db_ojsystem_test.t_multiple_bank(mid, content, optiona, optionb, optionc, optiond, type,
+       answer, parse, founder, createtime)
+       values(#{mid}, #{content}, #{optiona}, #{optionb}, #{optionc}, #{optiond}, #{type},
+       #{answer}, #{parse}, #{founder}, #{createtime})
+   </insert>
+
+    <insert id="addJudgeTopic" parameterType="judgeTopic">
+        insert into db_ojsystem_test.t_judge_bank(jid, content, answer, parse, createtime, founder)
+        values(#{jid}, #{content}, #{answer}, #{parse}, #{createtime}, #{founder})
+    </insert>
+
+    <insert id="addBlankTopic" parameterType="blankTopic">
+        insert into db_ojsystem_test.t_blank_bank(bid, content, answer, parse, type, createtime, founder)
+        values(#{bid},#{content},#{answer},#{parse},#{type},#{createtime},#{founder})
+    </insert>
+
+    <insert id="addCodeTopic" parameterType="codeTopic">
+        insert into db_ojsystem_test.t_code_bank(cid, title, content, answer, parse, createtime, founder)
+        values(#{cid},#{title},#{content},#{answer},#{parse},#{createtime},#{founder})
+    </insert>
+
+
+
+    <!---->
+    <!---->
+    <!---->
+
+    <delete id="deleteMultipleTopic" parameterType="String">
+        delete from db_ojsystem_test.t_multiple_bank where mid = #{mid}
+    </delete>
+
+    <delete id="deleteJudgeTopic" parameterType="String">
+        delete from db_ojsystem_test.t_judge_bank where jid = #{jid}
+    </delete>
+
+    <delete id="deleteBlankTopic" parameterType="String">
+        delete from db_ojsystem_test.t_blank_bank where bid = #{jid}
+    </delete>
+
+    <delete id="deleteCodeTopic" parameterType="String">
+        delete from db_ojsystem_test.t_code_bank where cid = #{cid}
+    </delete>
+
+
+    <!---->
+    <!---->
+    <!---->
+
+
+    <update id="updateMultipleTopic" parameterType="multipleTopic">
+        update db_ojsystem_test.t_multiple_bank set content=#{content}, optiona=#{optiona}, optionb=#{optionb},
+            optionc=#{optionc}, optiond=#{optiond}, type=#{type}, answer=#{answer}, parse=#{parse}, founder=#{founder}, createtime=#{createtime}
+        where mid=#{mid}
+    </update>
+
+    <update id="updateJudgeTopic" parameterType="judgeTopic">
+        update db_ojsystem_test.t_judge_bank set content=#{content}, answer=#{answer}, parse=#{parse},
+            createtime=#{createtime}, founder=#{founder} where jid = #{jid}
+    </update>
+
+    <update id="updateBlankTopic" parameterType="blankTopic">
+        update db_ojsystem_test.t_blank_bank set content=#{content}, answer=#{answer}, parse=#{parse},
+            createtime=#{createtime}, founder=#{founder} where bid = #{bid};
+    </update>
+
+    <update id="updateCodeTopic" parameterType="codeTopic">
+        update db_ojsystem_test.t_code_bank set title=#{title}, content=#{content}, answer=#{answer}, parse=#{parse},
+            createtime=#{createtime}, founder=#{founder} where cid = #{cid}
+    </update>
+
+
+
+    <!---->
+    <!--根据id查询题目-->
+    <!---->
+
+    <select id="queryMultipleTopic" parameterType="String" resultType="multipleTopic">
+        select *
+        from db_ojsystem_test.t_multiple_bank
+        where mid=#{mid};
+    </select>
+
+    <select id="queryJudgeTopic" parameterType="String" resultType="judgeTopic">
+        select *
+        from db_ojsystem_test.t_judge_bank
+        where jid = #{jid}
+    </select>
+
+    <select id="queryBlankTopic" parameterType="String" resultType="blankTopic">
+        select *
+        from db_ojsystem_test.t_blank_bank
+        where bid = #{bid};
+    </select>
+
+    <select id="queryCodeTopic" parameterType="String" resultType="codeTopic">
+        select *
+        from db_ojsystem_test.t_code_bank
+        where cid = #{cid}
+    </select>
+
+    <!--根据一个id数组查出题目-->
+
+    <select id="queryArrayMultipleTopic" resultType="multipleTopic" >
+        SELECT * from db_ojsystem_test.t_multiple_bank where mid in
+        <foreach collection="array" open="(" separator="," close=")" item="id">
+            #{id}
+        </foreach>
+    </select>
+
+    <select id="queryArrayJudgeTopic" resultType="judgeTopic" >
+        SELECT * from db_ojsystem_test.t_judge_bank where jid in
+        <foreach collection="array" open="(" separator="," close=")" item="id">
+            #{id}
+        </foreach>
+    </select>
+
+    <select id="queryArrayBlankTopic" resultType="blankTopic" >
+        SELECT * from db_ojsystem_test.t_blank_bank where bid in
+        <foreach collection="array" open="(" separator="," close=")" item="id">
+            #{id}
+        </foreach>
+    </select>
+
+    <select id="queryArrayCodeTopic" resultType="codeTopic" >
+        SELECT * from db_ojsystem_test.t_code_bank where cid in
+        <foreach collection="array" open="(" separator="," close=")" item="id">
+            #{id}
+        </foreach>
+    </select>
+
+
+
+    <!--随机查询任意行数据，此查询语句效率较低-->
+
+    <select id="queryRandMultipleTopic" parameterType="int" resultType="multipleTopic" >
+        SELECT * FROM db_ojsystem_test.t_multiple_bank
+        <where>
+            <if test="type != 0" >
+                type > 0
+            </if>
+            <if test="type == 0">
+                type = 0
+            </if>
+        </where>
+        ORDER BY RAND() LIMIT #{count};
+    </select>
+
+    <select id="queryRandJudgeTopic" parameterType="int" resultType="judgeTopic">
+        SELECT * FROM `db_ojsystem_test`.t_judge_bank ORDER BY RAND() LIMIT #{count}
+    </select>
+
+    <select id="queryRandBlankTopic" parameterType="int" resultType="blankTopic">
+        SELECT * FROM `db_ojsystem_test`.t_blank_bank
+        <where>
+            <if test="type != 0" >
+                type > 0
+            </if>
+            <if test="type == 0">
+                type = 0
+            </if>
+        </where>
+        ORDER BY RAND() LIMIT #{count}
+    </select>
+
+    <select id="queryRandCodeTopic" parameterType="int" resultType="codeTopic">
+        SELECT * FROM `db_ojsystem_test`.t_code_bank ORDER BY RAND() LIMIT #{count}
+    </select>
+
+
+
+
+</mapper>

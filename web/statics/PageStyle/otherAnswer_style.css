@@ -1,0 +1,176 @@
+body,ul{
+    padding: 0;
+    margin: 0;
+    font-size: 12px;
+}
+
+a{
+    text-decoration: none;
+    color: white;
+}
+
+.decorate{
+    height: 60px;
+    background-color: rgb(51,51,51);
+    font-size: 26px;
+    color: white;
+}
+
+.decorate{
+    height: 60px;
+    background-color: rgb(51,51,51);
+    font-size: 26px;
+    color: white;
+}
+
+.decorate div{
+    float: left;
+    margin-top: 10px;
+    margin-left: 30px;
+}
+
+.decorate div:hover{
+    text-shadow: 0px 0px 7px rgb(255, 255, 255);
+}
+
+.rad{
+    padding-top: 30px;
+    height: 900px;
+    width: 1245px;
+    margin-left: 340px;
+}
+
+@font-face {font-family: 'iconfont';
+    src: url('../iconf/iconfont.eot');
+    src: url('../iconf/iconfont.eot?#iefix') format('embedded-opentype'),
+    url('../iconf/iconfont.woff') format('woff'),
+    url('../iconf/iconfont.ttf') format('truetype'),
+    url('../iconf/iconfont.svg#iconfont') format('svg');
+}
+
+.arricon{
+    font-family:"iconfont" !important;
+}
+
+.ms{
+    height: 30px;
+    width: auto;
+    margin-left: 20px;
+}
+
+.demo-type{
+    float: left;
+    margin-right: 10px;
+}
+
+.username{
+    float: left;
+    font-size: 16px;
+    font-weight: bold;
+    margin-top: 10px;
+}
+
+.people{
+    height: 100px;
+    width: 100%;
+    border: 1px solid #C0C4CC;
+    border-radius: 20px;
+    cursor: pointer;
+    transition: background-color 0.25s;
+}
+
+.people:hover{
+    background-color: rgb(245,245,245);
+}
+
+.tet{
+    float: left;
+    font-size: 12px;
+    color: #909399;
+    height: 30px;
+    width: 600px;
+    overflow: hidden;
+    margin-top: 10px;
+    margin-left: -20px;
+}
+
+.sie{
+    float: left;
+    margin-left: 300px;
+    margin-top: 25px;
+}
+
+.ip{
+    font-size: 30px;
+    color: #909399;
+}
+
+.ip:hover{
+    color: #409EFF;
+}
+
+.likeComments{
+    font-size: 12px;
+    color: #909399;
+}
+
+.el-icon-chat-line-round{
+    margin-left: 20px;
+    font-size: 30px;
+    color: #909399;
+}
+
+.el-icon-chat-line-round:hover{
+    color: #409EFF;
+}
+
+.discussionNum{
+    font-size: 12px;
+    color: #909399;
+}
+
+.el-icon-view{
+    margin-left: 20px;
+    font-size: 30px;
+    color: #909399;
+}
+
+.el-icon-view:hover{
+    color: #409EFF;
+}
+
+.userImg{
+    float: left;
+}
+
+.people{
+    margin-top: 10px;
+}
+
+.ico{
+    padding-top: 10px;
+    margin-left: 300px;
+    cursor: pointer;
+}
+
+.chouTi .discussion{
+    width: 555px;
+    height: auto;
+    padding: 20px 15px;
+    background-color: rgb(240,240,240);
+    border-radius: 20px;
+    margin-left: 10px;
+}
+
+.chouTi .feedBack{
+    width: 555px;
+    margin-left: 10px;
+    height: auto;
+}
+
+.people1{
+    margin-top: 10px;
+    margin-left: 10px;
+    height: 30px;
+    width: auto;
+}

@@ -1,0 +1,100 @@
+body,ul{
+    padding: 0;
+    margin: 0;
+    font-size: 12px;
+}
+
+a{
+    text-decoration: none;
+    color: white;
+}
+
+.decorate{
+    height: 60px;
+    background-color: rgb(51,51,51);
+    font-size: 26px;
+    color: white;
+}
+
+.decorate{
+    height: 60px;
+    background-color: rgb(51,51,51);
+    font-size: 26px;
+    color: white;
+}
+
+.decorate div{
+    float: left;
+    margin-top: 10px;
+    margin-left: 30px;
+}
+
+.decorate div:hover{
+    text-shadow: 0px 0px 7px rgb(255, 255, 255);
+}
+
+.rad:not(.usr){
+    padding-top: 30px;
+    height: 900px;
+    width: 1245px;
+    margin-left: 340px;
+}
+
+.fro{
+    color: #303133;
+    font-size: 16px;
+    margin-bottom: 10px;
+}
+
+.lia{
+    text-indent: 2em;
+    color: #606266;
+    font-size: 16px;
+    width: 900px;
+    background-color: rgb(240,240,240);
+    padding:20px 15px 20px 15px;
+    border-radius: 10px;
+}
+
+@font-face {font-family: 'iconfont';
+    src: url('../iconf/iconfont.eot');
+    src: url('../iconf/iconfont.eot?#iefix') format('embedded-opentype'),
+    url('../iconf/iconfont.woff') format('woff'),
+    url('../iconf/iconfont.ttf') format('truetype'),
+    url('../iconf/iconfont.svg#iconfont') format('svg');
+}
+
+.arricon{
+    font-family:"iconfont" !important;
+}
+
+.lin{
+    font-size: 30px;
+    color: #909399;
+    margin-right: 30px;
+    cursor: pointer;
+}
+
+hr{
+    margin-top: 30px;
+    margin-bottom: 30px;
+}
+
+.like,.collection{
+    font-size: 16px;
+}
+
+.c1:hover{
+    color: #409EFF;
+}
+
+.c2:hover{
+    color: rgb(255,235,0);
+}
+
+.feedBack:hover{
+    height: 30px;
+    width: 30px;
+    border-radius: 15px;
+    background-color: rgb(233,233,235);
+}

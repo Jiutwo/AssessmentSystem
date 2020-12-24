@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="cn.jiutwo.dao.CheckMapper">
+    <insert id="addRecord" parameterType="record">
+        insert into db_ojsystem_test.t_record(rid, user_id, task_id, record, is_right, status, score, time, all_score)
+        values (#{rid},#{userId},#{taskId},#{record},#{isRight},#{status},#{score}, #{time}, #{allScore})
+    </insert>
+
+    <delete id="deleteRecord" parameterType="String">
+        delete from db_ojsystem_test.t_record where rid = #{rid}
+    </delete>
+
+    <update id="updateRecord" parameterType="record">
+        update db_ojsystem_test.t_record set user_id=#{userId}, task_id=#{taskId}, is_right=#{isRight},
+                                             record=#{record}, status=#{status}, score=#{score},time=#{time},
+                                             all_score=#{allScore}
+        where rid=#{rid}
+    </update>
+
+    <select id="queryRecordByRecordId" parameterType="String" resultType="record">
+        select *
+        from db_ojsystem_test.t_record a, db_ojsystem_test.t_task b
+        where a.task_id = b.tid and rid = #{rid}
+    </select>
+
+    <select id="queryRecordByUserId" parameterType="String" resultType="record">
+        select *
+        from db_ojsystem_test.t_record a, db_ojsystem_test.t_task b
+        where a.task_id = b.tid and user_id = #{userId};
+    </select>
+
+
+    <!---->
+    <!---->
+    <!---->
+
+
+    <insert id="addCheck" parameterType="check">
+        insert into db_ojsystem_test.t_check(cid, assessment_id, record_id)
+        values (cid=#{cid}, assessment_id=#{assessmentId}, record_id=#{recordId})
+    </insert>
+
+
+
+    <delete id="deleteCheck" parameterType="String">
+        delete from db_ojsystem_test.t_check
+        where cid = #{cid}
+    </delete>
+
+    <update id="updateCheck" parameterType="check">
+        update db_ojsystem_test.t_check set  assessment_id = #{assessmentId},
+                                            record_id = #{recordId}
+        where cid = #{cid};
+    </update>
+
+    <select id="queryCheck" resultType="check">
+        select *
+        from db_ojsystem_test.t_check a, db_ojsystem_test.t_record b, db_ojsystem_test.t_user c,
+             db_ojsystem_test.t_group d, db_ojsystem_test.t_group_middle e
+        where a.record_id = b.rid and b.user_id = c.uid and c.group_id = e.groupid and e.groupid = d.gid
+        <if test="cid != null">
+            AND a.cid = #{cid}
+        </if>
+        <if test="gid != null">
+            AND d.gid = #{gid}
+        </if>
+        <if test="assessment_id != null">
+            AND a.assessment_id = #{assessment_id}
+        </if>
+        <if test="username != null">
+            AND c.username like '%'#{username}'%'
+        </if>
+    </select>
+
+</mapper>

@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="WebContextManager">
+    <option name="state">
+      <map>
+        <entry key="file://$PROJECT_DIR$/web/index.jsp" value="file://$PROJECT_DIR$/web" />
+        <entry key="file://$PROJECT_DIR$/web/statics/index.jsp" value="file://$PROJECT_DIR$/web/statics" />
+        <entry key="file://$PROJECT_DIR$/web/statics/page/answer.jsp" value="file://$PROJECT_DIR$/web/statics/page" />
+        <entry key="file://$PROJECT_DIR$/web/statics/page/correct.html" value="file://$PROJECT_DIR$/web/statics/page" />
+        <entry key="file://$PROJECT_DIR$/web/statics/page/doTests.jsp" value="file://$PROJECT_DIR$/web/statics/page" />
+        <entry key="file://$PROJECT_DIR$/web/statics/page/judge.jsp" value="file://$PROJECT_DIR$/web/statics/page" />
+        <entry key="file://$PROJECT_DIR$/web/statics/page/receiveEnvelop.jsp" value="file://$PROJECT_DIR$/web/statics/page" />
+        <entry key="file://$PROJECT_DIR$/web/statics/page/schoolTest.jsp" value="file://$PROJECT_DIR$/web/statics/page" />
+        <entry key="file://$PROJECT_DIR$/web/statics/page/writeEnvelope.jsp" value="file://$PROJECT_DIR$/web/statics/page" />
+      </map>
+    </option>
+  </component>
+</project>
